@@ -7,9 +7,10 @@ t.colormode(255)
 timmy.shape("turtle")
 timmy.color("purple", "aqua")
 
-timmy.pensize(5)
-timmy.speed(5)
-direction = [0, 90, 180, 270]
+timmy.pensize(2)
+timmy.speed("fastest")
+
+# direction = [0, 90, 180, 270]
 
 
 def random_color():
@@ -20,8 +21,11 @@ def random_color():
     selected_color = (r, g, b)
     return selected_color
 
+def full_circle(size_of_gap):
+    for _ in range(int(360 / size_of_gap)):
+        timmy.color(random_color())
+        timmy.circle(100)
+        timmy.setheading(timmy.heading() + size_of_gap)
+        # timmy.setheading(choice(direction))
 
-for _ in range(200):
-    timmy.color(random_color())
-    timmy.forward(30)
-    timmy.setheading(choice(direction))
+full_circle(5)
