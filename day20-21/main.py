@@ -35,7 +35,7 @@ while snek_running:
     snek_head = snek.snek_body_seg[0]
 
     # Detect collisions against food
-    if snek.snek_body_seg[0].distance(food) < 15:
+    if snek_head.distance(food) < 15:
         food.random_food()
         snek.extend_body_seg()
         scoreboard.scores()
@@ -47,7 +47,7 @@ while snek_running:
 
     # Detect collisions against the tail
     for seg in snek.snek_body_seg[1:]:
-        if snek.snek_body_seg[0].distance(seg) < 10:
+        if snek_head.distance(seg) < 10:
             snek_running = False
             scoreboard.game_over()
 
