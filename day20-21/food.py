@@ -8,9 +8,9 @@ class Food(Turtle):
         self.color("blue")
         self.shapesize(0.5, 0.5)
         self.speed("fastest")
-        self.random_food()
+        self.generate()
 
-    def random_food(self):
+    def generate(self):
         random_x = randint(-280, 280)
         random_y = randint(-280, 280)
         self.goto(random_x, random_y)
