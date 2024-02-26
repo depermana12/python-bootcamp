@@ -28,10 +28,12 @@ while len(guessed_island) < len(island_list):
     user_guess = screen.textinput(title=f"{len(guessed_island)}/5", prompt="What's another island name?").title()
 
     if user_guess == "Exit":
-        unanswered_island = []
-        for land in island_list:
-            if land not in guessed_island:
-                unanswered_island.append(land)
+        # unanswered_island = []
+        # for land in island_list:
+        #     if land not in guessed_island:
+        #         unanswered_island.append(land)
+
+        unanswered_island = [land for land in island_list if land not in guessed_island]
 
         df = pd.DataFrame(unanswered_island, columns=["island"])
         df.to_csv("islands remaining.csv")
